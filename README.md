@@ -1,9 +1,9 @@
-# Trabajo practico N°5: Javascript - Cronometro
+# Trabajo practico N°5: Javascript - Temporizador
 
 ![javascript](https://soyhorizonte.com/wp-content/uploads/2020/10/Javascript-by-SoyHorizonte.jpg)
 
-Ejercicio 5 del TP N°5: cronometro.
-Es un cronometro virtual que te permite, arrancar, pausar y resetear.
+Ejercicio 6 del TP N°5: Temporizador.
+Es un temporizador virtual que te permite ingresar un timepo limite y al darle play empieza una cuenta decreciente, se puede pausar y reestablecer.
 
 ## Requisitos ✅
 
@@ -16,9 +16,13 @@ Es un cronometro virtual que te permite, arrancar, pausar y resetear.
 ## Para clonar el repositorio 💻
 
 ```bash
-git clone https://github.com/Fedreric/TP5-javascript-Cronometro.git
+git clone https://github.com/Fedreric/TP5-javascript-Temporizador.git
 ```
+## Como usar ⌨
+- Ingresa el tiempo que necesites
+- utiliza los botones para realizar la accion deseada
+
 ## Sitio Web 💻
-https://cronometro-fede39i.netlify.app/
+https://temporizador-fede39i.netlify.app/
 ## Autor 👨‍💻
  Federico Luciano Ledesma [GitHub](https://github.com/Fedreric)
