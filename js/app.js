@@ -1,17 +1,43 @@
-const cronometroEnPantalla = document.getElementById("cronometro");
+const temporizadorEnPantalla = document.getElementById("temporizador");
 const btnPlay = document.getElementById("btnPlay");
 const btnPause = document.getElementById("btnPause");
 const btnReset = document.getElementById("btnReset");
+const btnListo = document.getElementById("btnListo");
+let horas = document.getElementById('horas');
+let minutos = document.getElementById('minutos');
+let segundos = document.getElementById('segundos');
 let segundosActuales = 0;
 let minutosActuales = 0;
 let horasActuales = 0;
 let bandera = true;
-let cronometroIndex;
+let temporizadorIndex;
 btnPlay.addEventListener("click", play);
 btnPause.addEventListener("click", pause);
 btnReset.addEventListener("click", reset);
+btnListo.addEventListener("click", listo);
 
-function cronometroActualizado() {
+function listo(e){
+    e.preventDefault();
+    horasActuales = parseInt(horas.value);
+    minutosActuales = parseInt(minutos.value);
+    segundosActuales = parseInt(segundos.value);
+    temporizadorActualizado();
+    pause();
+}
+function validacion(){
+    if(isNaN(horasActuales)){
+        horasActuales = 0;
+    }
+    if(isNaN(minutosActuales)){
+        minutosActuales = 0;
+    }
+    if(isNaN(segundosActuales)){
+        segundosActuales = 0;
+    }
+} 
+
+function temporizadorActualizado() {
+    validacion();
     function segundos() {
         let segundos0;
         if (segundosActuales < 10) {
@@ -39,37 +65,44 @@ function cronometroActualizado() {
             return horasActuales;
         }
     }
-    cronometroEnPantalla.innerHTML = `${horas()}:${minutos()}:${segundos()}`
+    temporizadorEnPantalla.innerHTML = `${horas()}:${minutos()}:${segundos()}`
 }
 
-function cronometro() {
-    cronometroActualizado();
-    segundosActuales++;
-    if (segundosActuales === 60) {
-        minutosActuales++;
-        segundosActuales = 0;
+function temporizador() {
+    temporizadorActualizado();
+    if(segundosActuales > 0){
+        segundosActuales--;
+    }  
+    if (segundosActuales === 0) {
+        if(minutosActuales > 0){
+            minutosActuales--;
+            segundosActuales = 59;
+        }           
     }
-    if (minutosActuales === 60) {
-        horasActuales++;
-        minutosActuales = 0;
+    if (minutosActuales === 0) {
+        if(horasActuales > 0){
+            horasActuales--;
+            minutosActuales = 59;
+            segundosActuales = 59;
+        }                   
     }
 }
 
 function play() {
     if (bandera === true) {
-        cronometroIndex = setInterval(cronometro, 1000);
+        temporizadorIndex = setInterval(temporizador, 1000);
         bandera = false;
     }
 }
 function pause() {
-    clearInterval(cronometroIndex);
+    clearInterval(temporizadorIndex);
     bandera = true;
 }
 function reset() {
-    segundosActuales = 0;
-    minutosActuales = 0;
-    horasActuales = 0;
-    cronometroActualizado();
+    horasActuales = parseInt(horas.value);
+    minutosActuales = parseInt(minutos.value);
+    segundosActuales = parseInt(segundos.value);
+    temporizadorActualizado();
     pause();
 }
 
