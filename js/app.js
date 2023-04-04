@@ -2,6 +2,10 @@ const cronometroEnPantalla = document.getElementById("cronometro");
 const btnPlay = document.getElementById("btnPlay");
 const btnPause = document.getElementById("btnPause");
 const btnReset = document.getElementById("btnReset");
+const btnListo = document.getElementById("btnListo");
+let horas = document.getElementById('horas');
+let minutos = document.getElementById('minutos');
+let segundos = document.getElementById('segundos');
 let segundosActuales = 0;
 let minutosActuales = 0;
 let horasActuales = 0;
@@ -10,7 +14,16 @@ let cronometroIndex;
 btnPlay.addEventListener("click", play);
 btnPause.addEventListener("click", pause);
 btnReset.addEventListener("click", reset);
+btnListo.addEventListener("click", listo);
 
+function listo(e){
+    e.preventDefault();
+    segundosActuales = segundos.value;
+    minutosActuales = minutos.value;
+    horasActuales = horas.value;
+
+    console.log( horasActuales,minutosActuales, segundosActuales);
+}
 function cronometroActualizado() {
     function segundos() {
         let segundos0;
