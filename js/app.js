@@ -18,13 +18,26 @@ btnListo.addEventListener("click", listo);
 
 function listo(e){
     e.preventDefault();
-    segundosActuales = segundos.value;
-    minutosActuales = minutos.value;
-    horasActuales = horas.value;
-
-    console.log( horasActuales,minutosActuales, segundosActuales);
+    horasActuales = parseInt(horas.value);
+    minutosActuales = parseInt(minutos.value);
+    segundosActuales = parseInt(segundos.value);
+    cronometroActualizado();
+    pause();
 }
+function validacion(){
+    if(isNaN(horasActuales)){
+        horasActuales = 0;
+    }
+    if(isNaN(minutosActuales)){
+        minutosActuales = 0;
+    }
+    if(isNaN(segundosActuales)){
+        segundosActuales = 0;
+    }
+} 
+
 function cronometroActualizado() {
+    validacion();
     function segundos() {
         let segundos0;
         if (segundosActuales < 10) {
@@ -57,15 +70,21 @@ function cronometroActualizado() {
 
 function cronometro() {
     cronometroActualizado();
-    segundosActuales++;
-    if (segundosActuales === 60) {
-        minutosActuales++;
-        segundosActuales = 0;
-    }
-    if (minutosActuales === 60) {
-        horasActuales++;
-        minutosActuales = 0;
-    }
+    if(segundosActuales > 0){
+        segundosActuales--;
+        if (segundosActuales === 0) {
+            if(minutosActuales > 0){
+                minutosActuales--;
+                segundosActuales = 59;
+                if (minutosActuales === 0) {
+                    if(horasActuales > 0){
+                        horasActuales--;
+                        minutosActuales = 59;
+                    }                   
+                }
+            }           
+        }
+    }  
 }
 
 function play() {
@@ -79,9 +98,9 @@ function pause() {
     bandera = true;
 }
 function reset() {
-    segundosActuales = 0;
-    minutosActuales = 0;
-    horasActuales = 0;
+    horasActuales = parseInt(horas.value);
+    minutosActuales = parseInt(minutos.value);
+    segundosActuales = parseInt(segundos.value);
     cronometroActualizado();
     pause();
 }
