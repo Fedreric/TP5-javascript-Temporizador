@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron&display=swap");
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: "Orbitron", sans-serif;
+  background-color: #8bc6ec;
+  background-image: linear-gradient(135deg, #8bc6ec 0%, #9599e2 100%);
+  color: #d4d3d3;
+}
+main {
+  flex-grow: 1;
+}
+p {
+  font-size: 1.1em;
+  margin: 0;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#cronometro {
+  font-size: 2em;
+  margin-top: 2px;
+}
+.bgCronometro {
+  width: 80%;
+  background-color: #8c90e5;
+  border-radius: 10px;
+}
+.boton {
+  background-color: #8c90e5;
+  border: none;
+  border-radius: 10px;
+  color: #d4d3d3;
+}
+.botonListo{
+    background-color: #8c90e5;
+    color: #d4d3d3;
+    border: none;
+    margin: 5px;
+    border-bottom:1px solid #8bc6ec;
+}
+.botonListo:hover{
+    
+}
+@media screen and (min-width: 992px) {
+  .bgCronometro {
+    width: 25%;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .bgCronometro {
+    width: 50%;
+  }
+}

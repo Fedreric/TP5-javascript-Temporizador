@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Federico Luciano Ledesma" />
+    <meta
+      name="description"
+      content="Ejercicio 5 del TP N°5: cronometro. Es un cronometro virtual que te permite, arrancar, pausar y resetear."
+    />
+    <meta name="keywords" content="Cronometro, cronometro virtual, tiempo, cronometro para retos" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>TP5 - Cronometro</title>
+  </head>
+  <body>
+    <header></header>
+    <main class="text-center">
+      <section class="container pt-5">
+        <article class="container my-2 d-inline-block bgCronometro">
+            <form>
+                <label for="hora">Horas</label>
+                <input type="number" class="form-control" id="">
+                <label for="hora">Minutos</label>
+                <input type="number" class="form-control" id="">
+                <label for="hora">Segundos</label>
+                <input type="number" class="form-control" id="">
+                <button type="submit" class="botonListo">Listo</button>
+            </form>
+        </article>
+        <p id="cronometro" class="bgCronometro">00:00:00</p>
+        <article class="container mt-2 d-inline-block">
+          <button class="boton" id="btnPlay">
+            <i class="bi bi-play fs-4"></i>
+          </button>
+          <button class="boton" id="btnPause">
+            <i class="bi bi-pause fs-4"></i>
+          </button>
+          <button class="boton" id="btnReset">
+            <i class="bi bi-arrow-clockwise fs-4"></i>
+          </button>
+        </article>
+      </section>
+    </main>
+    <footer class="text-center py-4">
+      <p>&copy; Federico Luciano Ledesma</p>
+    </footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
